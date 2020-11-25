@@ -5,15 +5,17 @@ void main() {
 }
 
 class App extends StatelessWidget {
+  static const String _title = 'ListS';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: _title,
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(title: _title),
       debugShowCheckedModeBanner: false,
     );
   }
