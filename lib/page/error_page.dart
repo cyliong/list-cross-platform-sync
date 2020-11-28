@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:items/constants.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage(this.message);
@@ -8,6 +9,9 @@ class ErrorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(kAppTitle),
+      ),
       body: Center(
         child: Text(message),
       ),
