@@ -15,13 +15,14 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: Text(kAppTitle),
       ),
-      body: ListView.builder(
+      body: ListView.separated(
         itemCount: _items.length,
         itemBuilder: (context, index) {
           return ListTile(
             title: Text('${_items[index]}'),
           );
         },
+        separatorBuilder: (BuildContext context, int index) => const Divider(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: null,
