@@ -7,21 +7,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _items = List<String>.generate(5, (i) => 'Item ${i + 1}');
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(kAppTitle),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'No Items',
-            ),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: _items.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text('${_items[index]}'),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: null,
