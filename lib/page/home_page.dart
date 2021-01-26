@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:items/constants.dart';
+import 'package:items/model/list_item.dart';
+import 'package:items/service/database_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -7,28 +9,41 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final _items = List<String>.generate(5, (i) => 'Item ${i + 1}');
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(kAppTitle),
       ),
-      body: ListView.separated(
-        itemCount: _items.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text('${_items[index]}'),
-          );
-        },
-        separatorBuilder: (BuildContext context, int index) => const Divider(),
+      body: Center(
+        child: FutureBuilder<List<ListItem>>(
+            future: DatabaseService().items,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return _buildListView(snapshot.data);
+              } else if (snapshot.hasError) {
+                return Text("${snapshot.error}");
+              }
+              return CircularProgressIndicator();
+            }),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: null,
         tooltip: 'Add',
         child: Icon(Icons.add),
       ),
+    );
+  }
+
+  ListView _buildListView(List<ListItem> items) {
+    return ListView.separated(
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('${items[index].title}'),
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => const Divider(),
     );
   }
 }
