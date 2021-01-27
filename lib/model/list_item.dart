@@ -13,4 +13,10 @@ class ListItem {
     this.id = id;
     this.title = map[_titleField];
   }
+
+  Map<String, dynamic> toMap() {
+    final map = <String, dynamic>{};
+    map[_titleField] = title;
+    return map;
+  }
 }
