@@ -10,6 +10,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<List<ListItem>> _items;
+
+  @override
+  void initState() {
+    super.initState();
+    _items = DatabaseService().items;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +26,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: FutureBuilder<List<ListItem>>(
-            future: DatabaseService().items,
+            future: _items,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 return _buildListView(snapshot.data);
@@ -49,9 +57,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> _showInputDialog() async {
-    await showDialog<ListItem>(
+    final savedItem = await showDialog<ListItem>(
       context: context,
       builder: (context) => ItemPage(),
     );
+    if (savedItem != null) {
+      setState(() {
+        _items = DatabaseService().items;
+      });
+    }
   }
 }
