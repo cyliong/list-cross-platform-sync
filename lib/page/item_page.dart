@@ -17,7 +17,7 @@ class _ItemPageState extends State<ItemPage> {
         actions: <Widget>[
           TextButton(
             child: Text('Cancel'),
-            onPressed: () {},
+            onPressed: () => Navigator.pop(context),
           ),
           TextButton(
             child: Text('Save'),
