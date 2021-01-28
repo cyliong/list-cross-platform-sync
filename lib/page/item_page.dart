@@ -6,11 +6,20 @@ class ItemPage extends StatefulWidget {
 }
 
 class _ItemPageState extends State<ItemPage> {
+  final _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
         title: Text('New Item'),
         content: TextField(
+          controller: _controller,
           autofocus: true,
           decoration: InputDecoration(hintText: 'Add title'),
         ),
