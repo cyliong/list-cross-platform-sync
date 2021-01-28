@@ -12,4 +12,8 @@ class DatabaseService {
         .map((snapshot) => ListItem.fromMap(snapshot.data(), snapshot.id))
         .toList();
   }
+
+  void addItem(ListItem item) async {
+    await _firestore.collection(_itemsCollection).add(item.toMap());
+  }
 }
