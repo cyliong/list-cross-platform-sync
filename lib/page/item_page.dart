@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:items/model/list_item.dart';
+import 'package:items/service/database_service.dart';
 
 class ItemPage extends StatefulWidget {
   @override
@@ -30,8 +32,17 @@ class _ItemPageState extends State<ItemPage> {
           ),
           TextButton(
             child: Text('Save'),
-            onPressed: () {},
+            onPressed: () => _save(context),
           )
         ]);
+  }
+
+  void _save(BuildContext context) async {
+    final text = _controller.text;
+    if (text?.trim()?.isEmpty ?? true) return;
+
+    final item = ListItem(title: text);
+    await DatabaseService().addItem(item);
+    Navigator.pop(context, item);
   }
 }

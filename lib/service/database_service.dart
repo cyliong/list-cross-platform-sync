@@ -13,7 +13,7 @@ class DatabaseService {
         .toList();
   }
 
-  void addItem(ListItem item) async {
+  Future<void> addItem(ListItem item) async {
     await _firestore.collection(_itemsCollection).add(item.toMap());
   }
 }
