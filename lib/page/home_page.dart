@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:items/constants.dart';
 import 'package:items/model/list_item.dart';
+import 'package:items/page/item_page.dart';
 import 'package:items/service/database_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             }),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: null,
+        onPressed: () => _showInputDialog(),
         tooltip: 'Add',
         child: Icon(Icons.add),
       ),
@@ -44,6 +45,13 @@ class _HomePageState extends State<HomePage> {
         );
       },
       separatorBuilder: (BuildContext context, int index) => const Divider(),
+    );
+  }
+
+  Future<void> _showInputDialog() async {
+    await showDialog<ListItem>(
+      context: context,
+      builder: (context) => ItemPage(),
     );
   }
 }
