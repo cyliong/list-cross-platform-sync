@@ -8,6 +8,21 @@ class ItemPage extends StatefulWidget {
 class _ItemPageState extends State<ItemPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return AlertDialog(
+        title: Text('New Item'),
+        content: TextField(
+          autofocus: true,
+          decoration: InputDecoration(hintText: 'Add title'),
+        ),
+        actions: <Widget>[
+          TextButton(
+            child: Text('Cancel'),
+            onPressed: () {},
+          ),
+          TextButton(
+            child: Text('Save'),
+            onPressed: () {},
+          )
+        ]);
   }
 }
