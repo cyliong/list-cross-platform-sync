@@ -48,8 +48,19 @@ class _HomePageState extends State<HomePage> {
     return ListView.separated(
       itemCount: items.length,
       itemBuilder: (context, index) {
-        return ListTile(
-          title: Text('${items[index].title}'),
+        final item = items[index];
+
+        return Dismissible(
+          key: Key('item_dismissible_${item.id}'),
+          onDismissed: (direction) async {
+            await DatabaseService().deleteItem(item);
+            setState(() {
+              items.removeAt(index);
+            });
+          },
+          child: ListTile(
+            title: Text('${item.title}'),
+          ),
         );
       },
       separatorBuilder: (BuildContext context, int index) => const Divider(),
