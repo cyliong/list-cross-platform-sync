@@ -16,4 +16,8 @@ class DatabaseService {
   Future<void> addItem(ListItem item) async {
     await _firestore.collection(_itemsCollection).add(item.toMap());
   }
+
+  Future<void> deleteItem(ListItem item) async {
+    await _firestore.collection(_itemsCollection).doc(item.id).delete();
+  }
 }
