@@ -57,6 +57,11 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               items.removeAt(index);
             });
+
+            Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text("Item deleted"),
+              duration: Duration(seconds: 1),
+            ));
           },
           background: Container(color: Colors.red),
           child: ListTile(
