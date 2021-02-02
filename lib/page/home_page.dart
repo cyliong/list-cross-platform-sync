@@ -58,6 +58,7 @@ class _HomePageState extends State<HomePage> {
               items.removeAt(index);
             });
           },
+          background: Container(color: Colors.red),
           child: ListTile(
             title: Text('${item.title}'),
           ),
