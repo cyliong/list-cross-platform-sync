@@ -75,6 +75,7 @@ class _HomePageState extends State<HomePage> {
           background: Container(color: Colors.red),
           child: ListTile(
             title: Text('${item.title}'),
+            onTap: () => _showInputDialog(item: item),
           ),
         );
       },
@@ -82,10 +83,10 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<void> _showInputDialog() async {
+  Future<void> _showInputDialog({ListItem item}) async {
     final savedItem = await showDialog<ListItem>(
       context: context,
-      builder: (context) => ItemPage(),
+      builder: (context) => ItemPage(item: item),
     );
     if (savedItem != null) {
       setState(() {
