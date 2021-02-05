@@ -6,6 +6,10 @@ class DatabaseService {
 
   final _firestore = FirebaseFirestore.instance;
 
+  static final _instance = DatabaseService._();
+  factory DatabaseService() => _instance;
+  DatabaseService._();
+
   Future<List<ListItem>> get items async {
     final querySnapshot = await _firestore.collection(_itemsCollection).get();
     return querySnapshot.docs
