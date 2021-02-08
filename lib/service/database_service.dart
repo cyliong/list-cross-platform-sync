@@ -11,7 +11,10 @@ class DatabaseService {
   DatabaseService._();
 
   Future<List<ListItem>> get items async {
-    final querySnapshot = await _firestore.collection(_itemsCollection).get();
+    final querySnapshot = await _firestore
+        .collection(_itemsCollection)
+        .orderBy(ListItem.createdField)
+        .get();
     return querySnapshot.docs
         .map((snapshot) => ListItem.fromMap(snapshot.data(), snapshot.id))
         .toList();
