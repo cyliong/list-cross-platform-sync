@@ -1,5 +1,6 @@
 class ListItem {
   static const _titleField = 'title';
+  static const createdField = 'created';
 
   String id;
   String title;
