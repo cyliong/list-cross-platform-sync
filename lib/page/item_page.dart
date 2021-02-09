@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/service/database_service.dart';
@@ -54,7 +55,10 @@ class _ItemPageState extends State<ItemPage> {
 
     var item;
     if (widget.isNew) {
-      item = ListItem(title: text);
+      item = ListItem(
+        title: text,
+        created: Timestamp.now(),
+      );
       await DatabaseService().addItem(item);
     } else {
       item = widget.item..title = text;
