@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:items/constants.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
+import 'package:items/page/login_page.dart';
 import 'package:items/service/database_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,6 +24,20 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(kAppTitle),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Log Out',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginPage(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: Center(
         child: FutureBuilder<List<ListItem>>(
