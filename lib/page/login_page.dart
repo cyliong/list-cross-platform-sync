@@ -12,17 +12,22 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text('Log In'),
       ),
-      body: Column(
-        children: [
-          TextField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              border: const OutlineInputBorder(),
-              labelText: 'Email',
-            ),
-            autofocus: true,
-          )
-        ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              TextField(
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  labelText: 'Email',
+                ),
+                autofocus: true,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
