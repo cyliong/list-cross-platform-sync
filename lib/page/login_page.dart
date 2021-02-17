@@ -32,7 +32,19 @@ class _LoginPageState extends State<LoginPage> {
                   border: const OutlineInputBorder(),
                   labelText: 'Password',
                 ),
-              )
+              ),
+              const SizedBox(height: 20.0),
+              ElevatedButton(
+                child: Text('Log In'),
+                style: ElevatedButton.styleFrom(
+                  textStyle: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  padding: EdgeInsets.all(10),
+                ),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
