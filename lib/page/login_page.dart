@@ -24,6 +24,14 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: 'Email',
                 ),
                 autofocus: true,
+              ),
+              const SizedBox(height: 16.0),
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  border: const OutlineInputBorder(),
+                  labelText: 'Password',
+                ),
               )
             ],
           ),
