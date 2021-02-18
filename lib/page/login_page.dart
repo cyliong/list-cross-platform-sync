@@ -6,7 +6,17 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
   String _errorMessage = '';
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: 'Email',
                 ),
                 autofocus: true,
+                controller: _emailController,
               ),
               const SizedBox(height: 16.0),
               TextField(
@@ -35,6 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   border: const OutlineInputBorder(),
                   labelText: 'Password',
                 ),
+                controller: _passwordController,
               ),
               const SizedBox(height: 16.0),
               Text(
