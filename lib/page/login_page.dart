@@ -46,6 +46,15 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: () {},
               ),
+              TextButton(
+                child: Text('Create Account'),
+                style: TextButton.styleFrom(
+                  textStyle: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                onPressed: () {},
+              ),
             ],
           ),
         ),
