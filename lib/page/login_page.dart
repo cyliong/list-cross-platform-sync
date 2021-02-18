@@ -6,6 +6,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _errorMessage = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +34,13 @@ class _LoginPageState extends State<LoginPage> {
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
                   labelText: 'Password',
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              Text(
+                _errorMessage,
+                style: TextStyle(
+                  color: Colors.red,
                 ),
               ),
               const SizedBox(height: 20.0),
