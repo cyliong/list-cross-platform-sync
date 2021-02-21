@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   padding: EdgeInsets.all(10),
                 ),
-                onPressed: () {},
+                onPressed: () => _submit(true),
               ),
               TextButton(
                 child: Text('Create Account'),
@@ -74,12 +74,28 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 16,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () => _submit(false),
               ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  void _submit(bool isLogin) {
+    final email = _emailController.text?.trim();
+    final password = _passwordController.text?.trim();
+
+    String errorMessage;
+    if ((email?.isEmpty ?? true) || (password?.isEmpty ?? true)) {
+      errorMessage = 'Email and password are required';
+    } else {
+      errorMessage = '';
+    }
+
+    setState(() {
+      _errorMessage = errorMessage;
+    });
   }
 }
