@@ -87,15 +87,15 @@ class _LoginPageState extends State<LoginPage> {
     final email = _emailController.text?.trim();
     final password = _passwordController.text?.trim();
 
-    String errorMessage;
     if ((email?.isEmpty ?? true) || (password?.isEmpty ?? true)) {
-      errorMessage = 'Email and password are required';
-    } else {
-      errorMessage = '';
+      setState(() {
+        _errorMessage = 'Email and password are required';
+      });
+      return;
     }
 
     setState(() {
-      _errorMessage = errorMessage;
+      _errorMessage = '';
     });
   }
 }
