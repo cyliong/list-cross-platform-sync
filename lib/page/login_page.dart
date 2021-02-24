@@ -103,7 +103,9 @@ class _LoginPageState extends State<LoginPage> {
     });
 
     try {
-      if (!isLogin) {
+      if (isLogin) {
+        await _authenticationService.signIn(email: email, password: password);
+      } else {
         await _authenticationService.signUp(email: email, password: password);
       }
 
