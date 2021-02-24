@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:items/page/home_page.dart';
+import 'package:items/service/authentication_service.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -8,6 +10,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+
+  final _authenticationService = AuthenticationService();
 
   String _errorMessage = '';
 
@@ -83,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void _submit(bool isLogin) {
+  Future<void> _submit(bool isLogin) async {
     final email = _emailController.text?.trim();
     final password = _passwordController.text?.trim();
 
@@ -97,5 +101,22 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       _errorMessage = '';
     });
+
+    try {
+      if (!isLogin) {
+        await _authenticationService.signUp(email: email, password: password);
+      }
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomePage(),
+        ),
+      );
+    } catch (e) {
+      setState(() {
+        _errorMessage = e.toString();
+      });
+    }
   }
 }
