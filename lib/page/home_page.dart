@@ -3,6 +3,7 @@ import 'package:items/constants.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/page/item_page.dart';
 import 'package:items/page/login_page.dart';
+import 'package:items/service/authentication_service.dart';
 import 'package:items/service/database_service.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,7 +29,8 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.logout),
             tooltip: 'Log Out',
-            onPressed: () {
+            onPressed: () async {
+              await AuthenticationService().signOut();
               Navigator.push(
                 context,
                 MaterialPageRoute(
