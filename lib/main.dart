@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:items/constants.dart';
 import 'package:items/page/error_page.dart';
-import 'package:items/page/home_page.dart';
+import 'package:items/page/launch_page.dart';
 import 'package:items/page/loading_page.dart';
 
 void main() {
@@ -22,7 +22,7 @@ class App extends StatelessWidget {
             return _buildMaterialApp(ErrorPage('${snapshot.error}'));
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            return _buildMaterialApp(HomePage());
+            return _buildMaterialApp(LaunchPage());
           }
           return _buildMaterialApp(LoadingPage());
         });
