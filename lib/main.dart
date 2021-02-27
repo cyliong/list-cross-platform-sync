@@ -2,8 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:items/constants.dart';
 import 'package:items/page/error_page.dart';
-import 'package:items/page/launch_page.dart';
+import 'package:items/page/home_page.dart';
 import 'package:items/page/loading_page.dart';
+import 'package:items/page/login_page.dart';
+import 'package:items/service/authentication_service.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,7 +24,12 @@ class App extends StatelessWidget {
             return _buildMaterialApp(ErrorPage('${snapshot.error}'));
           }
           if (snapshot.connectionState == ConnectionState.done) {
-            return _buildMaterialApp(LaunchPage());
+            final authenticationService = AuthenticationService();
+            if (authenticationService.currentUserId == null) {
+              return _buildMaterialApp(LoginPage());
+            } else {
+              return _buildMaterialApp(HomePage());
+            }
           }
           return _buildMaterialApp(LoadingPage());
         });
