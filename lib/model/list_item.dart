@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:meta/meta.dart';
 
 class ListItem {
   static const _titleField = 'title';
@@ -10,8 +11,8 @@ class ListItem {
 
   ListItem({
     this.id,
-    this.title,
-    this.created,
+    @required this.title,
+    @required this.created,
   });
 
   ListItem.fromMap(Map<String, dynamic> map, String id) {
