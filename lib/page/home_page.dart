@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
             tooltip: 'Log Out',
             onPressed: () async {
               await AuthenticationService().signOut();
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
                   builder: (context) => LoginPage(),
