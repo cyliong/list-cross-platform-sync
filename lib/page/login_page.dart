@@ -109,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
         await _authenticationService.signUp(email: email, password: password);
       }
 
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => HomePage(),
