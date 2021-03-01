@@ -5,6 +5,10 @@ class AuthenticationService {
 
   String get currentUserId => _firebaseAuth.currentUser?.uid;
 
+  static final _instance = AuthenticationService._();
+  factory AuthenticationService() => _instance;
+  AuthenticationService._();
+
   Future<String> signUp({String email, String password}) async {
     final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
