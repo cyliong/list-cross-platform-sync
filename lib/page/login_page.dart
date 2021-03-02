@@ -53,6 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                   labelText: 'Password',
                 ),
                 controller: _passwordController,
+                onSubmitted: (_) => _submit(true),
               ),
               const SizedBox(height: 16.0),
               Text(
