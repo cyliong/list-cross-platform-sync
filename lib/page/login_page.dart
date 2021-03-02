@@ -36,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               TextField(
                 keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
                 decoration: InputDecoration(
                   border: const OutlineInputBorder(),
                   labelText: 'Email',
