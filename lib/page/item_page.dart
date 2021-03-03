@@ -37,6 +37,7 @@ class _ItemPageState extends State<ItemPage> {
           autofocus: true,
           textInputAction: TextInputAction.done,
           decoration: InputDecoration(hintText: 'Add title'),
+          onSubmitted: (_) => _save(context),
         ),
         actions: <Widget>[
           TextButton(
