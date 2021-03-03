@@ -35,6 +35,7 @@ class _ItemPageState extends State<ItemPage> {
         content: TextField(
           controller: _titleController,
           autofocus: true,
+          textInputAction: TextInputAction.done,
           decoration: InputDecoration(hintText: 'Add title'),
         ),
         actions: <Widget>[
