@@ -14,17 +14,17 @@ class ItemPage extends StatefulWidget {
 }
 
 class _ItemPageState extends State<ItemPage> {
-  final _controller = TextEditingController();
+  final _titleController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
-    _controller.text = widget.item?.title;
+    _titleController.text = widget.item?.title;
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _titleController.dispose();
     super.dispose();
   }
 
@@ -33,7 +33,7 @@ class _ItemPageState extends State<ItemPage> {
     return AlertDialog(
         title: Text('${widget.isNew ? 'New' : 'Edit'} Item'),
         content: TextField(
-          controller: _controller,
+          controller: _titleController,
           autofocus: true,
           decoration: InputDecoration(hintText: 'Add title'),
         ),
@@ -50,7 +50,7 @@ class _ItemPageState extends State<ItemPage> {
   }
 
   void _save(BuildContext context) async {
-    final text = _controller.text;
+    final text = _titleController.text;
     if (text?.trim()?.isEmpty ?? true) return;
 
     var item;
