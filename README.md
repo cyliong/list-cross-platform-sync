@@ -8,5 +8,5 @@ More information will be provided when it is ready.*
 - firebase_auth
 
 ## Requirements
-- Flutter 1.22.6 or higher
-- Dart 2.10.5 or higher
+- Flutter 2.0.0 or higher
+- Dart 2.12.0 or higher
