@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:items/model/list_item.dart';
 
@@ -18,7 +16,7 @@ class DatabaseService {
         .orderBy(ListItem.createdField)
         .get();
     return querySnapshot.docs
-        .map((snapshot) => ListItem.fromMap(snapshot.data(), snapshot.id))
+        .map((snapshot) => ListItem.fromMap(snapshot.data()!, snapshot.id))
         .toList();
   }
 
