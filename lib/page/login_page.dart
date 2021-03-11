@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:items/page/home_page.dart';
 import 'package:items/service/authentication_service.dart';

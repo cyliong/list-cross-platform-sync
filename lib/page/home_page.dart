@@ -1,3 +1,5 @@
+// @dart=2.9
+
 import 'package:flutter/material.dart';
 import 'package:items/constants.dart';
 import 'package:items/model/list_item.dart';
