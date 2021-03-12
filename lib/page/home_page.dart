@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:items/constants.dart';
 import 'package:items/model/list_item.dart';
@@ -14,7 +12,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Future<List<ListItem>> _items;
+  late Future<List<ListItem>> _items;
 
   @override
   void initState() {
@@ -48,7 +46,7 @@ class _HomePageState extends State<HomePage> {
             future: _items,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                final items = snapshot.data;
+                final items = snapshot.data!;
                 return items.isEmpty
                     ? Text(
                         'No Items',
@@ -102,7 +100,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<void> _showInputDialog({ListItem item}) async {
+  Future<void> _showInputDialog({ListItem? item}) async {
     final savedItem = await showDialog<ListItem>(
       context: context,
       builder: (context) => ItemPage(item: item),
