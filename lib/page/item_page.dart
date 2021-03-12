@@ -1,12 +1,10 @@
-// @dart=2.9
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:items/model/list_item.dart';
 import 'package:items/service/database_service.dart';
 
 class ItemPage extends StatefulWidget {
-  final ListItem item;
+  final ListItem? item;
   final bool isNew;
 
   ItemPage({this.item}) : isNew = item == null;
@@ -21,7 +19,8 @@ class _ItemPageState extends State<ItemPage> {
   @override
   void initState() {
     super.initState();
-    _titleController.text = widget.item?.title;
+    final title = widget.item?.title;
+    if (title != null) _titleController.text = title;
   }
 
   @override
@@ -54,18 +53,18 @@ class _ItemPageState extends State<ItemPage> {
   }
 
   void _save(BuildContext context) async {
-    final text = _titleController.text;
-    if (text?.trim()?.isEmpty ?? true) return;
+    final title = _titleController.text;
+    if (title.trim().isEmpty) return;
 
     var item;
     if (widget.isNew) {
       item = ListItem(
-        title: text,
+        title: title,
         created: Timestamp.now(),
       );
       await DatabaseService().addItem(item);
     } else {
-      item = widget.item..title = text;
+      item = widget.item!..title = title;
       await DatabaseService().updateItem(item);
     }
     Navigator.pop(context, item);
