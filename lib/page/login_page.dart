@@ -1,5 +1,3 @@
-// @dart=2.9
-
 import 'package:flutter/material.dart';
 import 'package:items/page/home_page.dart';
 import 'package:items/service/authentication_service.dart';
@@ -93,10 +91,10 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _submit(bool isLogin) async {
-    final email = _emailController.text?.trim();
-    final password = _passwordController.text?.trim();
+    final email = _emailController.text.trim();
+    final password = _passwordController.text.trim();
 
-    if ((email?.isEmpty ?? true) || (password?.isEmpty ?? true)) {
+    if ((email.isEmpty) || (password.isEmpty)) {
       setState(() {
         _errorMessage = 'Email and password are required';
       });
