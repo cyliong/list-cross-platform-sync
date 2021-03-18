@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
               items.removeAt(index);
             });
 
-            Scaffold.of(context).showSnackBar(SnackBar(
+            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
               content: Text("Item deleted"),
               duration: Duration(seconds: 1),
             ));
