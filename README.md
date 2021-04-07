@@ -1,6 +1,15 @@
 # list-cross-platform-sync
-*This project is a work in progress.
-More information will be provided when it is ready.*
+This is a simple cross-platform list mobile app 
+(to-do list, tasks, shopping list, recipes, and the like) 
+written in Dart using the Flutter framework, 
+for both Android and iOS platforms.
+
+It showcases the implementation of CRUD operations 
+with various Flutter programming techniques and patterns, including:
+- Integration with Firebase services (Authentication, Cloud Firestore)
+- Asynchronous programming with `Future`, `async` and `await`
+- Singleton pattern with factory constructor
+- Sound null safety
 
 ## Features
 - Create user account with email and password 
@@ -20,5 +29,5 @@ More information will be provided when it is ready.*
 - firebase_auth
 
 ## Requirements
-- Flutter 2.0.3 or higher
+- Flutter 2.0.4 or higher
 - Dart 2.12.0 or higher
