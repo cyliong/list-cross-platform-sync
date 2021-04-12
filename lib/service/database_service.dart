@@ -16,7 +16,7 @@ class DatabaseService {
         .orderBy(ListItem.createdField)
         .get();
     return querySnapshot.docs
-        .map((snapshot) => ListItem.fromMap(snapshot.data()!, snapshot.id))
+        .map((snapshot) => ListItem.fromMap(snapshot.data(), snapshot.id))
         .toList();
   }
 
