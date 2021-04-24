@@ -29,5 +29,5 @@ with various Flutter programming techniques and patterns, including:
 - firebase_auth
 
 ## Requirements
-- Flutter 2.0.4 or higher
+- Flutter 2.0.5 or higher
 - Dart 2.12.0 or higher
