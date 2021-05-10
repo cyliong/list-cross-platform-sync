@@ -14,13 +14,13 @@ class ListItem {
     required this.created,
   });
 
-  ListItem.fromMap(Map<String, dynamic> map, String id)
+  ListItem.fromMap(Map<String, Object?> map, String id)
       : id = id,
-        title = map[_titleField],
-        created = map[createdField];
+        title = map[_titleField] as String,
+        created = map[createdField] as Timestamp;
 
-  Map<String, dynamic> toMap() {
-    final map = <String, dynamic>{};
+  Map<String, Object?> toMap() {
+    final map = <String, Object?>{};
     map[_titleField] = title;
     map[createdField] = created;
     return map;
