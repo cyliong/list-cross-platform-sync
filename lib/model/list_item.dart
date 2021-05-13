@@ -15,9 +15,11 @@ class ListItem {
   });
 
   ListItem.fromMap(Map<String, Object?> map, String id)
-      : id = id,
-        title = map[_titleField] as String,
-        created = map[createdField] as Timestamp;
+      : this(
+          id: id,
+          title: map[_titleField] as String,
+          created: map[createdField] as Timestamp,
+        );
 
   Map<String, Object?> toMap() {
     final map = <String, Object?>{};
