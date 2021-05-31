@@ -21,10 +21,8 @@ class ListItem {
           created: map[createdField] as Timestamp,
         );
 
-  Map<String, Object?> toMap() {
-    final map = <String, Object?>{};
-    map[_titleField] = title;
-    map[createdField] = created;
-    return map;
-  }
+  Map<String, Object?> toMap() => {
+        _titleField: title,
+        createdField: created,
+      };
 }
