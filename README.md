@@ -1,8 +1,8 @@
 # list-cross-platform-sync
-This is a simple cross-platform list mobile app 
+This is a simple cross-platform list app 
 (to-do list, tasks, shopping list, recipes, and the like) 
 written in Dart using the Flutter framework, 
-for both Android and iOS platforms.
+for the Android, iOS and web platforms.
 
 It showcases the implementation of CRUD operations 
 with various Flutter programming techniques and patterns, including:
@@ -24,6 +24,7 @@ with various Flutter programming techniques and patterns, including:
 - Swipe to delete items 
   (`Dismissible`, `DocumentReference`'s `delete()`)
 - Store items on a NoSQL cloud database (Cloud Firestore)
+- Support the Android, iOS and web platforms
 
 ## Dependencies
 - firebase_core
@@ -31,5 +32,5 @@ with various Flutter programming techniques and patterns, including:
 - firebase_auth
 
 ## Requirements
-- Flutter 2.2.2 or higher
+- Flutter 2.2.3 or higher
 - Dart 2.12.0 or higher
