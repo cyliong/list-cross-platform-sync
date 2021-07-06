@@ -28,64 +28,79 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: const Text('Log In'),
       ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              TextField(
-                keyboardType: TextInputType.emailAddress,
-                textInputAction: TextInputAction.next,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelText: 'Email',
-                ),
-                autofocus: true,
-                controller: _emailController,
+      body: LayoutBuilder(
+        builder: (context, viewportConstraints) {
+          return SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: viewportConstraints.maxHeight,
               ),
-              const SizedBox(height: 16.0),
-              TextField(
-                obscureText: true,
-                textInputAction: TextInputAction.done,
-                decoration: InputDecoration(
-                  border: const OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-                controller: _passwordController,
-                onSubmitted: (_) => _submit(true),
-              ),
-              const SizedBox(height: 16.0),
-              Text(
-                _errorMessage,
-                style: TextStyle(
-                  color: Colors.red,
-                ),
-              ),
-              const SizedBox(height: 20.0),
-              ElevatedButton(
-                child: Text('Log In'),
-                style: ElevatedButton.styleFrom(
-                  textStyle: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+              child: Center(
+                child: Container(
+                  constraints: BoxConstraints(
+                    maxWidth: 380,
                   ),
-                  padding: EdgeInsets.all(10),
-                ),
-                onPressed: () => _submit(true),
-              ),
-              TextButton(
-                child: Text('Create Account'),
-                style: TextButton.styleFrom(
-                  textStyle: TextStyle(
-                    fontSize: 16,
+                  padding: EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      TextField(
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(),
+                          labelText: 'Email',
+                        ),
+                        autofocus: true,
+                        controller: _emailController,
+                      ),
+                      const SizedBox(height: 16.0),
+                      TextField(
+                        obscureText: true,
+                        textInputAction: TextInputAction.done,
+                        decoration: InputDecoration(
+                          border: const OutlineInputBorder(),
+                          labelText: 'Password',
+                        ),
+                        controller: _passwordController,
+                        onSubmitted: (_) => _submit(true),
+                      ),
+                      const SizedBox(height: 16.0),
+                      Text(
+                        _errorMessage,
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                      const SizedBox(height: 20.0),
+                      ElevatedButton(
+                        child: Text('Log In'),
+                        style: ElevatedButton.styleFrom(
+                          textStyle: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          padding: EdgeInsets.all(18),
+                        ),
+                        onPressed: () => _submit(true),
+                      ),
+                      const SizedBox(height: 10.0),
+                      TextButton(
+                        child: Text('Create Account'),
+                        style: TextButton.styleFrom(
+                          textStyle: TextStyle(
+                            fontSize: 18,
+                          ),
+                        ),
+                        onPressed: () => _submit(false),
+                      ),
+                    ],
                   ),
                 ),
-                onPressed: () => _submit(false),
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }
