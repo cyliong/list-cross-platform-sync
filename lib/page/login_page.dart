@@ -37,6 +37,12 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: Center(
                 child: Container(
+                  decoration: viewportConstraints.maxWidth > 600
+                      ? BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          borderRadius: BorderRadius.circular(8),
+                        )
+                      : null,
                   constraints: BoxConstraints(
                     maxWidth: 380,
                   ),
