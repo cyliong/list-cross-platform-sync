@@ -10,6 +10,7 @@ with various Flutter programming techniques and patterns, including:
 - Asynchronous programming with `Future`, `async` and `await`
 - Singleton pattern with factory constructor
 - Sound null safety
+- Responsive design with `LayoutBuilder`
 
 ## Features
 - Create user account with email and password 
