@@ -7,7 +7,7 @@ class ItemPage extends StatefulWidget {
   final ListItem? item;
   final bool isNew;
 
-  ItemPage({this.item}) : isNew = item == null;
+  ItemPage(this.item) : isNew = item == null;
 
   @override
   _ItemPageState createState() => _ItemPageState();

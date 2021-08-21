@@ -103,7 +103,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _showInputDialog({ListItem? item}) async {
     final savedItem = await showDialog<ListItem>(
       context: context,
-      builder: (context) => ItemPage(item: item),
+      builder: (context) => ItemPage(item),
     );
     if (savedItem != null) {
       setState(() {
