@@ -85,8 +85,10 @@ class _HomePageState extends State<HomePage> {
             });
 
             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-              content: Text("Item deleted"),
+              content: Text("Item deleted."),
               duration: Duration(seconds: 1),
+              width: 200,
+              behavior: SnackBarBehavior.floating,
             ));
           },
           background: Container(color: Colors.red),
