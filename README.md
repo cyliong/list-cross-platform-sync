@@ -33,5 +33,5 @@ with various Flutter programming techniques and patterns, including:
 - firebase_auth
 
 ## Requirements
-- Flutter 2.2.3 or higher
-- Dart 2.12.0 or higher
+- Flutter 2.5.0 or higher
+- Dart 2.14.0 or higher
