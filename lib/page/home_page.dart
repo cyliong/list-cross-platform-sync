@@ -7,6 +7,8 @@ import 'package:items/service/authentication_service.dart';
 import 'package:items/service/database_service.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
