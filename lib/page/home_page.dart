@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(kAppTitle),
+        title: const Text(kAppTitle),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
               if (snapshot.hasData) {
                 final items = snapshot.data!;
                 return items.isEmpty
-                    ? Text(
+                    ? const Text(
                         'No Items',
                         style: TextStyle(
                           fontSize: 30,
@@ -61,13 +61,13 @@ class _HomePageState extends State<HomePage> {
               } else if (snapshot.hasError) {
                 return Text("${snapshot.error}");
               }
-              return CircularProgressIndicator();
+              return const CircularProgressIndicator();
             }),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showInputDialog(),
         tooltip: 'Add',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
               items.removeAt(index);
             });
 
-            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
               content: Text("Item deleted."),
               duration: Duration(seconds: 1),
               width: 200,
