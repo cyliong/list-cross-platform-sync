@@ -26,12 +26,12 @@ class App extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.done) {
             final authenticationService = AuthenticationService();
             if (authenticationService.currentUserId == null) {
-              return _buildMaterialApp(LoginPage());
+              return _buildMaterialApp(const LoginPage());
             } else {
-              return _buildMaterialApp(HomePage());
+              return _buildMaterialApp(const HomePage());
             }
           }
-          return _buildMaterialApp(LoadingPage());
+          return _buildMaterialApp(const LoadingPage());
         });
   }
 
