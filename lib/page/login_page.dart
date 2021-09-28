@@ -45,10 +45,10 @@ class _LoginPageState extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(8),
                         )
                       : null,
-                  constraints: BoxConstraints(
+                  constraints: const BoxConstraints(
                     maxWidth: 380,
                   ),
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
@@ -82,21 +82,21 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const SizedBox(height: 20.0),
                       ElevatedButton(
-                        child: Text('Log In'),
+                        child: const Text('Log In'),
                         style: ElevatedButton.styleFrom(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
-                          padding: EdgeInsets.all(18),
+                          padding: const EdgeInsets.all(18),
                         ),
                         onPressed: () => _submit(true),
                       ),
                       const SizedBox(height: 10.0),
                       TextButton(
-                        child: Text('Create Account'),
+                        child: const Text('Create Account'),
                         style: TextButton.styleFrom(
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 18,
                           ),
                         ),
