@@ -21,7 +21,7 @@ class App extends StatelessWidget {
         future: _initialization,
         builder: (context, snapshot) {
           if (snapshot.hasError) {
-            return _buildMaterialApp(ErrorPage('${snapshot.error}'));
+            return _buildMaterialApp(ErrorPage(message: '${snapshot.error}'));
           }
           if (snapshot.connectionState == ConnectionState.done) {
             final authenticationService = AuthenticationService();
