@@ -4,10 +4,12 @@ import 'package:items/model/list_item.dart';
 import 'package:items/service/database_service.dart';
 
 class ItemPage extends StatefulWidget {
+  const ItemPage(this.item, {Key? key})
+      : isNew = item == null,
+        super(key: key);
+
   final ListItem? item;
   final bool isNew;
-
-  ItemPage(this.item) : isNew = item == null;
 
   @override
   _ItemPageState createState() => _ItemPageState();
