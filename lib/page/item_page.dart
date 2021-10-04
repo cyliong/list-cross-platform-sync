@@ -46,11 +46,11 @@ class _ItemPageState extends State<ItemPage> {
         ),
         actions: <Widget>[
           TextButton(
-            child: Text('Cancel'),
+            child: const Text('Cancel'),
             onPressed: () => Navigator.pop(context),
           ),
           TextButton(
-            child: Text('Save'),
+            child: const Text('Save'),
             onPressed: () => _save(context),
           )
         ]);
