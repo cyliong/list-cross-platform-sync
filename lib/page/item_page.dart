@@ -14,7 +14,7 @@ class ItemPage extends StatefulWidget {
   final bool isNew;
 
   @override
-  _ItemPageState createState() => _ItemPageState();
+  State<ItemPage> createState() => _ItemPageState();
 }
 
 class _ItemPageState extends State<ItemPage> {
