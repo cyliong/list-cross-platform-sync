@@ -16,19 +16,19 @@ class DatabaseService {
         .orderBy(ListItem.createdField)
         .get();
     return querySnapshot.docs
-        .map((snapshot) => ListItem.fromMap(snapshot.data(), snapshot.id))
+        .map((snapshot) => ListItem.fromJson(snapshot.data(), snapshot.id))
         .toList();
   }
 
   Future<void> addItem(ListItem item) async {
-    await _firestore.collection(_itemsCollection).add(item.toMap());
+    await _firestore.collection(_itemsCollection).add(item.toJson());
   }
 
   Future<void> updateItem(ListItem item) async {
     await _firestore
         .collection(_itemsCollection)
         .doc(item.id)
-        .update(item.toMap());
+        .update(item.toJson());
   }
 
   Future<void> deleteItem(ListItem item) async {

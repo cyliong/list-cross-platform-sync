@@ -14,14 +14,14 @@ class ListItem {
     required this.created,
   });
 
-  ListItem.fromMap(Map<String, Object?> map, String id)
+  ListItem.fromJson(Map<String, Object?> map, String id)
       : this(
           id: id,
           title: map[_titleField] as String,
           created: map[createdField] as Timestamp,
         );
 
-  Map<String, Object?> toMap() => {
+  Map<String, Object?> toJson() => {
         _titleField: title,
         createdField: created,
       };
