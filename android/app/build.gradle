@@ -44,7 +44,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.ltp.xp.items"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
