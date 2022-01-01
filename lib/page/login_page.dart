@@ -55,8 +55,8 @@ class _LoginPageState extends State<LoginPage> {
                       TextField(
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
                           labelText: 'Email',
                         ),
                         autofocus: true,
@@ -66,8 +66,8 @@ class _LoginPageState extends State<LoginPage> {
                       TextField(
                         obscureText: true,
                         textInputAction: TextInputAction.done,
-                        decoration: InputDecoration(
-                          border: const OutlineInputBorder(),
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
                           labelText: 'Password',
                         ),
                         controller: _passwordController,
